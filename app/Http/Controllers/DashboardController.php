@@ -23,7 +23,7 @@ class DashboardController extends Controller
 
     public function myprofile()
     {
-        $bookings = booking::where('bookername', 'Fiony')->latest()->paginate(5);
+        $bookings = booking::where('bookername', Auth::user()->name )->latest()->paginate(5);
         return view('myprofile', compact('bookings'));
     }
     public function room()
